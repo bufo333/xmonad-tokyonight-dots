@@ -1,0 +1,20 @@
+Config { font =              "-*-terminus-*-*-normal--12-120-72-72-c-60-*-*"
+        , bgColor          = "#1a1b26",
+        , fgColor          = "#c0caf5",
+        , borderColor =      "#1a1b26"
+        , position =         TopH 25
+        , allDesktops =      True
+        , pickBroadest =     False
+        , hideOnStart =      False
+        , overrideRedirect = True
+        , persistent =       True
+        , lowerOnStart =     True
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = "%UnsafeXMonadLog% }{ <fc=#e0af68>|</fc> %date% <fc=#e0af68>|</fc> %KLAL% <fc=#e0af68>|</fc> %uname%"
+        , commands = [ Run Weather "KLAL" ["-t","Lakeland: <tempF> F (<skyCondition>)","-L","32","-H","80","--normal","#70a16c","--high","#af652f","--low","#7b854e"] 36000
+                , Run Com "uname" ["-s","-r"] "" 36000
+                , Run Date "%a %b %d %Y %I:%M %p (%S)" "date" 10
+                , Run UnsafeXMonadLog
+        ]
+}
